@@ -1,0 +1,219 @@
+package Package;
+import java.util.Scanner;
+
+public class Nov18 {
+
+	static Scanner input = new Scanner (System.in);
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//Task 1: write code to do below actions:
+		//t1: create an array named Test1 that stores the following: -2, 4, 7, 10, 9
+		int[] Test1 = { -2, 4, 7, 10, 9};
+		
+		//t2: create an array named Test2 that stores the following values: 3.14, 5.27, -9.8, 11.2, 17.0
+		
+		double[] Test2 = {3.14, 5.27, -9.8, 11.2, 17.0};
+		/*
+		//t3 write all code that displays all elements (values) of Test1
+		System.out.println("Test1 =  ");
+		
+		for (int index = 0; index < Test1.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%d\t", Test1[index]);
+			
+		}
+		System.out.println();
+		
+		//t4: write code to display all elements (values) of Test2
+
+		//t3 write all code that displays all elements (values) of Test1
+		System.out.println("Test2 =  ");
+		
+		for (int index = 0; index < Test2.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%.2f\t", Test2[index]);
+			
+		}
+		System.out.println();
+		//t5 write code that adds 10 to every element of Test1 and then redisplay the updated Test1
+		
+System.out.println("Test1 =  ");
+		
+		for (int index = 0; index < Test1.length; index++)
+		{
+			//at each index, add 10 to display the value that is stored at the index
+		
+		
+			Test1 [index] += 10;
+			}
+		for (int index = 0; index < Test1.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%d\t", Test1[index]);
+		}
+		//t6: write code that adds 10 to every element of Test2 and then redisplay the updated Test2
+		 
+		for (int index = 0; index < Test2.length; index++)
+		{
+			//at each index, add 10 to display the value that is stored at the index
+		
+			Test2 [index] += 10;
+			}
+		System.out.println("Test2 =  ");
+		for (int index = 0; index < Test2.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%d\t", Test2[index]);
+		}
+		*/
+		/*
+		//redo t3 by calling using the method dispalyArray
+			System.out.print("Test1 = ");
+			displayArray(Test1); //here: takenArray = Test1
+		
+			System.out.print("Test2 = ");
+			displayArray(Test2);
+			
+		//redo t5
+			
+			addTOArray(Test1);
+			System.out.print("Test1 = ");
+			displayArray(Test1); 
+		//redo t6
+			addTOArray(Test2);
+			System.out.print("Test2 = ");
+			displayArray(Test2); 
+			*/
+		//Task: loading the arrays from the user
+		//1-create an empty array of integers named list1 that can store up to five values
+		int[] list1 = new int[5];
+		
+		//2-create an empty array of characters named list2 that can store up to four values
+		char[] list2 = new char[4];
+		
+		//3-write code that reads five integere values from the user and store them into lis1
+		System.out.print("Enter five integer values: ");
+		loadArray(list1);  //here takenArray = list 1
+		//display list1
+		System.out.print("Thank you: " );
+		displayArray(list1);
+		
+		//redo 3 but for list 2
+		System.out.print("Enter 4 char values: ");
+		loadArray(list2);  //here takenArray = list 1
+		//display list1
+		System.out.print("Thank you: " );
+		displayArray(list2);
+		
+		
+		
+	}//end main
+	
+	//write a void method named displayArray that takes an array of integers as a parameter, 
+	//and then it will display the contents of that taken array
+	
+	public static void displayArray(int [] takenArray) {
+	for (int index = 0; index < takenArray.length; index++)
+	{
+		//at each index, display the value that is stored at the index
+		System.out.printf("%d\t", takenArray[index]);
+		
+	}
+	System.out.println();
+	
+	}
+	
+	//Do overloading for the method displayArray
+	
+	public static void displayArray(double [] takenArray) {
+	for (int index = 0; index < takenArray.length; index++)
+	{
+		//at each index, display the value that is stored at the index
+		System.out.printf("%.2f\t", takenArray[index]);
+		
+	}
+	System.out.println();
+	
+	}
+	public static void displayArray(char [] takenArray) {
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%c\t", takenArray[index]);
+			
+		}
+		System.out.println();
+		
+		}
+	public static void displayArray(String [] takenArray) {
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, display the value that is stored at the index
+			System.out.printf("%s\t", takenArray[index]);
+			
+		}
+		System.out.println();
+		
+		}
+	//write a void method named addTOArray that takes an integer array and then it will add 10 to every element of that taken array
+	//apply the overloading so addTo Array works with the double arrays
+	public static void addTOArray (int [] takenArray) {
+	
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, add 10 to display the value that is stored at the index
+		
+			takenArray [index] += 10;
+		}
+		}
+	public static void addTOArray (double [] takenArray) {
+		
+		for (int index = 0; index < takenArray.length; index++)
+		{
+			//at each index, add 10 to display the value that is stored at the index
+		
+			takenArray [index] += 10;
+		}	
+		}
+	//write a void method named loadArray that takes an array of integers as a parameter,
+	//and then it will prompt the user to insert values and it will store these values into that taken array
+	//Goal: Read a set of values and store them in the takenArray
+	public static void loadArray(int [] takenArray)
+	{
+		for(int index = 0; index < takenArray.length; index++)
+		{
+			System.out.print("Enter an integer value: ");
+			takenArray [index] = input.nextInt();
+		}
+	}
+	
+	public static void loadArray(double[] takenArray)
+	{
+		for(int index = 0; index < takenArray.length; index++)
+		{
+			System.out.print("Enter an integer value: ");
+			takenArray [index] = input.nextDouble();
+		}
+	}
+	public static void loadArray(char [] takenArray)
+	{
+		for(int index = 0; index < takenArray.length; index++)
+		{
+			System.out.print("Enter an integer value: ");
+			takenArray [index] = input.next().charAt(0);
+		}
+	}
+	public static void loadArray(String [] takenArray)
+	{
+		for(int index = 0; index < takenArray.length; index++)
+		{
+			System.out.print("Enter an integer value: ");
+			takenArray [index] = input.next();
+		}
+	}
+	
+	
+}//end class
