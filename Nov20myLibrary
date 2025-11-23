@@ -1,0 +1,123 @@
+package parallelArrays;
+
+import java.util.Scanner;
+
+public class myLibrary { // start myLibrary
+	static Scanner input = new Scanner(System.in);
+	public static void displayMenu()
+	{
+		System.out.println("\n =====COMP SCi 130 Menu");
+		System.out.println("1- Add a single student");
+		System.out.println("2- Add multiple students (complete roster)");
+		System.out.println("3- Display all students");
+		System.out.println("4- Find a student by name");
+		System.out.println("5- Display the students with the highest GPA and lowest GPA");
+		System.out.println("6- Count the number of students with an age above a given threshold");
+		System.out.println("7 - Exit");
+	
+	}//end displayMenu
+	
+	//add a method that performs the option fr a single student
+	//this method takes from the main method the following: the 3 Arrays( names, ages, gpas
+	//then it will read the student's name age gpa from the user
+	//finally it will add the inputed student to the end of the current students list
+
+	public static void addSingleStudent( String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		System.out.println("Adding a single student...");
+		String inputedName;  int inputedAge; double inputedGPA;
+		System.out.print("Enter First Name: ");
+		inputedName=input.next();
+		System.out.print("Enter Age: ");
+		inputedAge=input.nextInt();
+		System.out.print("Enter GPA: ");
+		inputedGPA = input.nextDouble();
+		
+		//add the inputed info @ index = studentCount
+		
+		names[studentCount] = inputedName; ages[studentCount]= inputedAge; gpas[studentCount] = inputedGPA;
+		System.out.printf("Student %s added successfully. \n",  inputedName);
+		
+		
+	}//end of addSingleStudent
+	
+	
+	//a method that performs the options Display all students
+	//this method takes from main methods
+	public static void DisplayAllStudents (String[] names, int[] ages, double [] gpas, int studentCount)
+	{//start DisplayAllStudents
+		
+		System.out.println("Displaying all students: ");
+		System.out.printf("%10s%25s%15s\n", "Name", "Age", "GPA");
+		System.out.printf("%10s%25s%15s\n", "----", "---", "---");
+		
+		for ( int index = 0; index < studentCount; index++)
+		{//start for
+			System.out.printf("%10s%25d%15.2f\n", names[index], ages[index], gpas[index]);
+		}//end for
+		
+	
+		
+	}//end DisplayAllStudents
+	
+	public static int AddMultipleStudents (String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		System.out.println("Adding multpile students...");
+		System.out.println("Enter the complete roster: ");
+		
+		//we should remove all current students from the list 
+		
+		studentCount=0;
+		//we will keep reading from the user until we find the keyword Stop
+		
+		String inputedName;  int inputedAge; double inputedGPA;
+		inputedName= input.next();
+		while( ! inputedName.equals("stop"))
+				{
+			inputedAge = input.nextInt();
+			inputedGPA = input.nextDouble();
+			
+			names[studentCount] = inputedName; ages[studentCount]= inputedAge; gpas[studentCount] = inputedGPA;
+			
+			//read the next student
+			inputedName= input.next();
+			studentCount++;
+				}//end while
+		System.out.printf("%d students added to the roster. \n", studentCount);
+		
+		return studentCount;
+	
+	}//endAddMultipleStudents
+	//add a method that finds a student by name: it will apply LinearSearch algorith
+	//it takes from the main and then it will read the student name that we would like to see if in our system or not
+	
+	public static void FindStudentByName(String[] names, int[] ages, double [] gpas, int studentCount)
+	{
+		String keyName;
+		System.out.print("Enter the name of the student to find: ");
+		keyName = input.next();
+		boolean isFound = false;
+		for( int index = 0; index < studentCount; index++)
+		{
+			if (names[index].equals(keyName) == true)
+			{
+				System.out.println("Student found");
+				System.out.printf("Name: %s\n",  names[index]);
+				System.out.printf("Age: %s\n",  ages[index]);
+				System.out.printf("GPA: %s\n",  gpas[index]);
+				//no need to continue to search if we have a match
+				break;
+				
+				
+			}//end if
+			
+		}//end for
+		if (isFound ==false)
+{
+	System.out.printf("Student %s not found in the roster.\n",  keyName);
+}
+		
+	}//End FindStudentByName method
+	
+	
+}//end myLibrary
